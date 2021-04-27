@@ -16,3 +16,5 @@ Notre but sera de créer une application Web capable de naviguer et rechercher p
 ## Mises à jour
 -----
 > 1. création du dossier de travail via la console PowerShell, installation de Node.js, installation du dossier projet avec React.js, installation de react routet dom, nettoyage des fichiers inutiles et appropriétion de la base de dossiers, création du README.md.
+> 2. création du README.md dans le dossier src expliquant l'architecture de mon arborescence "composents".
+> 3. Étude du cahier des charges et élaboration des documents d'organisation du projet sur GitHub.
