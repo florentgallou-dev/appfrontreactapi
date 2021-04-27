@@ -1,9 +1,11 @@
+import {Link} from "react-router-dom";
+import logo from './img/sw_logo.png';
+
 function Header() {
     return (
-        <header className="bg-dark text-center text-white">
-            <section className="container p-5">
-                <h1 className="text-danger">Mon atelier React.js</h1>
-                <p className="lead">Une todo list pour comprendre les fondamentaux.</p>
+        <header className="bg-noir text-center">
+            <section className="container pt-4 pb-3">
+                <Link to="/home"><img src={logo} alt="Star wars logo" /></Link>
             </section>
         </header>
     );

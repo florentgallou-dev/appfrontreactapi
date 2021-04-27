@@ -1,10 +1,10 @@
 function Footer() {
     return (
-        <header className="bg-dark text-center text-danger">
-            <section className="container p-5">
-                <p className="lead">Notre merveilleux footer</p>
+        <footer className="bg-noir text-white text-center">
+            <section className="container pt-4 pb-3">
+                <p>Application Web front-end React.JS et Bootstrap utilisant l'API SWAPI<br/><span>Florent Gallou - 2021</span></p>
             </section>
-        </header>
+        </footer>
     );
 }
 

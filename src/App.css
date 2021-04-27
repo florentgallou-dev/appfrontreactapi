@@ -1,0 +1,83 @@
+:root{
+  --darkGrey: #151515;
+  --lightgrey: #272727;
+  --brightGrey: #999;
+  --yellow: #EDEC51;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+/*--------------------------FONTS*/
+@font-face {
+  font-family: 'starjedi';
+  src: url('fonts/starjedi.woff2') format('woff2'),
+       url('fonts/starjedi.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url('fonts/montserrat-regular.woff2') format('woff2'),
+       url('fonts/montserrat-regular.woff') format('woff');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'starjedi';
+}
+
+p, a, span, li, button, figcaption, body {
+  font-family: 'montserrat';
+}
+
+/*--------------------------COLOR CLASS*/
+.txt-white { color: var(--white);}
+.txt-yellow { color: var(--yellow);}
+.txt-darkGrey { color: var(--darkGrey);}
+.txt-lightGrey { color: var(--lightgrey);}
+.txt-brightGrey { color: var(--brightGrey);}
+
+.bg-noir { background-color: var(--black);}
+.bg-darkGrey { background-color: var(--darkGrey);}
+.bg-lightGrey { background-color: var(--lightgrey);}
+
+/*--------------------------HEADER*/
+header img{
+  max-width: 100%;
+  height: 5vh;
+}
+
+/*--------------------------NAV*/
+nav li {
+  display: block;
+  position: relative;
+  text-align: center;
+  padding: 0 1vh;
+  text-transform: uppercase;
+}
+
+nav .textLien {
+  color: var(--brightGrey);
+  margin-bottom: -15px;
+  transition: color 100ms;
+}
+
+nav .textLien:hover {
+  color: var(--white);
+}
+
+.active{
+  color: var(--white);
+}
+
+/* nav span.horizontal-bar {
+  display: inline-block;
+  width: 32px;
+  border-top: 1px solid #fff;
+  box-shadow: 0 0 6px 2px;
+  color: var(--yellow);
+  transition: color 100ms;
+} */
+
+/*--------------------------FOOTER*/
+footer span{
+  font-family: 'starjedi';
+}

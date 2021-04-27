@@ -3,9 +3,9 @@ import Header from './components/layout/header/Header';
 import Footer from './components/layout/footer/Footer';
 import Nav from './components/layout/nav/nav';
 
-import Shoppinglist from './components/shoppinglist/shoppinglist';
-import Profil from './components/profil/profil';
-import Cgv from './components/cgv/cgv';
+import Home from './components/home/home';
+import Search from './components/search/search';
+
 
 import React from "react";
 import {
@@ -16,23 +16,20 @@ import {
 
 function App() {
   return (
-    <div>
-      <Header />
+    <div className="h-100 bg-darkGrey">
       <Router>
+        <Header />
         <Nav />
         <div className="container py-5">
           <Switch>
-            <Route path="/shoppinglist">
-              <Shoppinglist />
+            <Route path="/home">
+              <Home />
             </Route>
-            <Route path="/profil">
-              <Profil />
-            </Route>
-            <Route path="/cgv">
-              <Cgv />
+            <Route path="/search">
+              <Search />
             </Route>
             <Route path="/">
-              <Shoppinglist />
+              <Home />
             </Route>
           </Switch>
         </div>
