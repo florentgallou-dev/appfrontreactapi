@@ -19,3 +19,4 @@ Notre but sera de créer une application Web capable de naviguer et rechercher p
 > 2. création du README.md dans le dossier src expliquant l'architecture de mon arborescence "composents".
 > 3. Étude du cahier des charges et élaboration des documents d'organisation du projet sur GitHub.
 > 4. Header - nav - footer faits, accueil statique pratiquement fini.
+> 5. Home fini en mode static, restera la hauteur de la page à fixer.
