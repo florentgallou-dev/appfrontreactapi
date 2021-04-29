@@ -68,16 +68,62 @@ nav .textLien:hover {
   color: var(--white);
 }
 
-/* nav span.horizontal-bar {
-  display: inline-block;
-  width: 32px;
-  border-top: 1px solid #fff;
-  box-shadow: 0 0 6px 2px;
-  color: var(--yellow);
-  transition: color 100ms;
-} */
-
 /*--------------------------FOOTER*/
 footer span{
   font-family: 'starjedi';
 }
+
+/*--------------------------HOME*/
+
+.btn-home{
+  background-color: transparent;
+  color: var(--white);
+  font-weight: normal;
+  border: none;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+
+.btn-home:hover{
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+/*---Pictures corresponding to the categories*/
+.heightCat {
+  height: 20vh;
+}
+
+.imgCat{
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  opacity: 0.5;
+}
+
+.personnages{
+  background-image: url('img/people.png');
+}
+
+.planetes{
+  background-image: url('img/planets.png');
+}
+
+.films{
+  background-image: url('img/films.png');
+}
+
+.especes{
+  background-image: url('img/species.png');
+}
+
+.vehicules{
+  background-image: url('img/vehicles.png');
+}
+
+.vaisseaux{
+  background-image: url('img/spaceships.png');
+}
+/*---Pictures corresponding to the categories*/
