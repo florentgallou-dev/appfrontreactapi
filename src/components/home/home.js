@@ -1,40 +1,87 @@
-const categories = ["Personnages", "Planètes", "Films", "Espèces", "Véhicules", "Vaisseaux"];
+import React from 'react';
+import Axios from 'axios';
 
-//Function to transform accentuated character by non accentuated characters.
-String.prototype.sansAccent = function(){
-    var accent = [
-        /[\300-\306]/g, /[\340-\346]/g, // A, a
-        /[\310-\313]/g, /[\350-\353]/g, // E, e
-        /[\314-\317]/g, /[\354-\357]/g, // I, i
-        /[\322-\330]/g, /[\362-\370]/g, // O, o
-        /[\331-\334]/g, /[\371-\374]/g, // U, u
-        /[\321]/g, /[\361]/g, // N, n
-        /[\307]/g, /[\347]/g, // C, c
-    ];
-    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
-     
-    var str = this;
-    for(var i = 0; i < accent.length; i++){
-        str = str.replace(accent[i], noaccent[i]);
+import ListCategory from './listcategory/listcategory';
+
+//function called in the class to send back the list of elements created by the datas in response
+function returnElementWithDatas(response){
+    let listOfElements = [];
+    for(let data in response.data){
+        listOfElements.push(<ListCategory data={data} adress={response.data[data]} />);
     }
-    return str;
+    return listOfElements;
 }
 
-let arrayOfElementsDOM = categories.map((category) => <div className="col-12 col-sm-6 col-xl-4"><div className="p-3"><div className="row bg-lightGrey align-items-center heightCat p-3"><div className={"col-4 imgCat " + category.sansAccent().toLowerCase()}></div><div className="col-8"><input type="submit" className="btn-home text-break" value={category} /></div></div></div></div>);
 
-function Home() {
-    return (
-        <main className="text-center text-white">
-            <article className="container">
-                <div className="pb-3">
-                    <h1 className="txt-yellow">Home</h1>
-                </div>
-                <div className="row">
-                   {arrayOfElementsDOM}
-                </div>
-            </article>
-        </main>
-    );
+//Function to create and send the element home to the app
+class Home extends React.Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            loaded: false,
+            error: false,
+            data: null,
+            categories: null
+        }
+    }
+
+    // http request with axios
+    componentDidMount(){
+
+        // Make a request to the api SWAPI
+        Axios.get('https://swapi.dev/api/')
+
+        // handle successfull response
+        .then( (response) => {
+            //Fill categories with HTML elements coming from listcategory using datas from the api usin the returnElementWithDatas function
+            let categories = returnElementWithDatas(response);
+            this.setState({
+                loaded: true,
+                data: response.data, //Fill data with the raw datas from response
+                categories: categories //Fill categories with the complete element list created with the data in response
+            });
+        })
+        // handle response errors
+        .catch( (error) => {
+            this.setState({
+                loaded: true,
+                error: error
+            });
+        });
+    }
+
+    //Render html elements sent to the parent app
+    render(){
+        //Handle http state loaded
+        if(this.state.loaded){
+            //Handle http state loaded but with an error
+            if(this.state.error){
+                return(
+                    <h3 className="text-white bg-danger p-5 text-center">une erreur "{this.state.error.message}" est survenue !</h3>
+                );
+            }
+            //Handle http state loaded without and error
+            return(
+                <main className="text-center text-white">
+                <article className="container">
+                    <div className="pb-3">
+                        <h1 className="txt-yellow">Bienvenue dans la base de données de l'univers Star Wars</h1>
+                        <p>Parcourez à volonté les données pour retrouver les informations que vous désirez.</p>
+                    </div>
+                    <div className="row">
+                        {this.state.categories}
+                    </div>
+                </article>
+            </main>
+            );
+        }
+        //Handle http state not loaded yet
+        return (
+            <div>
+                <h2 className="text-white bg-yellow p-5 text-center jediFont">Données en cours de chargements</h2>
+            </div>
+        );
+    }
 }
 
 export default Home;
