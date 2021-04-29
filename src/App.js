@@ -1,3 +1,4 @@
+
 import './App.css';
 import Header from './components/layout/header/Header';
 import Footer from './components/layout/footer/Footer';
@@ -16,7 +17,7 @@ import {
 
 function App() {
   return (
-    <div className="h-100 bg-darkGrey">
+    <div id="container" className="bg-darkGrey">
       <Router>
         <Header />
         <Nav />

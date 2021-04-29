@@ -20,7 +20,7 @@
        url('fonts/montserrat-regular.woff') format('woff');
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .jediFont {
   font-family: 'starjedi';
 }
 
@@ -38,6 +38,28 @@ p, a, span, li, button, figcaption, body {
 .bg-noir { background-color: var(--black);}
 .bg-darkGrey { background-color: var(--darkGrey);}
 .bg-lightGrey { background-color: var(--lightgrey);}
+.bg-yellow { background-color: var(--yellow);}
+
+/*---------------------------HEIGHT SIZING MAIN ELEMENTS*/
+/*for smartphones*/
+body, #root, #container{
+  min-height: 100vh;
+  height: 100%;
+}
+
+/*When width larger than height with content*/
+@media screen and (min-width: 1200px) {
+  body, #root, #container{
+    height: 100vh;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
 
 /*--------------------------HEADER*/
 header img{
@@ -69,13 +91,14 @@ nav .textLien:hover {
 }
 
 /*--------------------------FOOTER*/
+
 footer span{
-  font-family: 'starjedi';
+    font-family: 'starjedi';
 }
 
 /*--------------------------HOME*/
 
-.btn-home{
+.btn-home, .btn-list{
   background-color: transparent;
   color: var(--white);
   font-weight: normal;
@@ -84,7 +107,7 @@ footer span{
   transition: all 0.3s;
 }
 
-.btn-home:hover{
+.btn-home:hover, .btn-list:hover{
   color: var(--yellow);
   font-weight: bold;
 }
@@ -103,11 +126,11 @@ footer span{
   opacity: 0.5;
 }
 
-.personnages{
+.people{
   background-image: url('img/people.png');
 }
 
-.planetes{
+.planets{
   background-image: url('img/planets.png');
 }
 
@@ -115,15 +138,15 @@ footer span{
   background-image: url('img/films.png');
 }
 
-.especes{
+.species{
   background-image: url('img/species.png');
 }
 
-.vehicules{
+.vehicles{
   background-image: url('img/vehicles.png');
 }
 
-.vaisseaux{
+.starships{
   background-image: url('img/spaceships.png');
 }
 /*---Pictures corresponding to the categories*/
