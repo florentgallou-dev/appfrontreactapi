@@ -107,9 +107,21 @@ footer span{
   transition: all 0.3s;
 }
 
-.btn-home:hover, .btn-list:hover{
+.heightCat:hover input, .btn-home:hover{
   color: var(--yellow);
   font-weight: bold;
+}
+
+.heightCat {
+  position: relative;
+  bottom: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-out;
+}
+
+.heightCat:hover {
+  border: 2px solid var(--yellow);
+  cursor: pointer;
 }
 
 /*---Pictures corresponding to the categories*/
