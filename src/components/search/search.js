@@ -3,12 +3,23 @@ import ListZone from './listzone/listzone';
 
 import React from 'react';
 
+let numberInRealTime = null;
+
 class Search extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            names: []
+            names: [],
+            searchNumber: null
         }
+    }
+
+    searchItem = (number) => {
+        this.setState({
+            //send redult of onchange value to props number to send it back to listzone
+            searchNumber: number
+        })
+        numberInRealTime = number;
     }
 
     render(){
@@ -20,10 +31,10 @@ class Search extends React.Component {
                         <p>Saisissez l'identifiant numérique du personnage que vous désirez retrouver.</p>
                     </div>
                     <div>
-                        <SearchZone />
+                        <SearchZone LookFor = {this.searchItem}/>
                     </div>
                     <div>
-                        <ListZone />
+                        <ListZone SearchNumber = {numberInRealTime}/>
                     </div>
                 </article>
             </main>

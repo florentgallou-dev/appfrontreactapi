@@ -12,9 +12,6 @@ const traduction = {
 
 //function to send back to the parent the complete element created using props
 class ListCategory extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
 /*--------------------------------------------------------------------------------------------------------------QUOI FAIRE QUAND JE RECUPERE L'ADRESSE DE L'API SUIVANTE*/
     //Function to handle the onclick event on the element to get the api adress corresponding to the category
@@ -27,10 +24,10 @@ class ListCategory extends React.Component{
     arrayOfElementsDOM = (category) => {
         return(
             <div className="p-3">
-                <div className="row bg-lightGrey align-items-center heightCat p-3">
+                <div className="row bg-lightGrey align-items-center heightCat p-3"  onClick={this.handleClick}>
                     <div className={"col-4 imgCat " + category.data}></div>{/*add category as a class to call the right backgroud picture*/}
                     <div className="col-8">
-                        <input type="submit" className="btn-home text-break" onClick={this.handleClick} value={traduction[category.data]} />{/*print the category sent by the props bu translated in french*/}
+                        <input type="submit" className="btn-home text-break" value={traduction[category.data]} />{/*print the category sent by the props bu translated in french*/}
                     </div>
                 </div>
             </div>

@@ -1,17 +1,9 @@
 import React from "react";
 
 class SearchZone extends React.Component {
-    constructor(props){
-        super(props);
-        // valeurs de stockage des input
-        this.state = {
-            searchInput: ""
-        }
-    }
-
+    //when user enters a number it is directly sent to the parent function to set it a a state var
     handleChange = (event) => {
-        this.setState({searchInput: event.target.value});
-        this.props.searchItem(this.state.searchInput);
+        this.props.LookFor(event.target.value);
     }
 
     render() {
@@ -19,7 +11,7 @@ class SearchZone extends React.Component {
             <div className="row my-3">
                 <div>
                     <div className="form-floating mb-3">
-                        <input type="number" class="form-control bg-lightGrey txt-brightGrey"  onChange={this.handleChange} value={this.state.searchInput} id="search" placeholder="Yoda"/>
+                        <input type="number" class="form-control bg-lightGrey txt-brightGrey"  onChange={this.handleChange} id="search" placeholder="Yoda"/>
                         <label for="search" className="txt-brightGrey">Saisissez un identifiant numérique entre 1 et 82</label>
                     </div>
                 </div>
