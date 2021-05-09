@@ -33,6 +33,7 @@ class Home extends React.Component {
 
         // handle successfull response
         .then( (response) => {
+            console.log(response);
             //Fill categories with HTML elements coming from listcategory using datas from the api usin the returnElementWithDatas function
             let categories = returnElementWithDatas(response);
             this.setState({
